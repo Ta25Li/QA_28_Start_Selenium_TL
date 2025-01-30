@@ -21,8 +21,11 @@ public class Index {
     @Test
     public void tableTest(){
         //Canada
-        WebElement canada = wd.findElement(By.cssSelector("tr:nth-child(3) td:last-child"));
+        //WebElement canada = wd.findElement(By.cssSelector("tr:nth-child(3) td:last-child"));
+        WebElement canada = wd.findElement(By.xpath("//td[text()='Canada']"));
         Assert.assertEquals(canada.getText(),"Canada");
+
+
     }
 
 
@@ -48,6 +51,8 @@ public class Index {
 
         List<WebElement> a_list = wd.findElements(By.className("nav-item"));
         List<WebElement> a_list1 = wd.findElements(By.cssSelector(".nav-item"));
+
+        //by id
 
         WebElement nav = wd.findElement(By.id("nav"));
         WebElement nav1 = wd.findElement(By.cssSelector("#nav")); // indicate that search by id
@@ -90,8 +95,20 @@ public class Index {
         *  ul li:nth-child(3)   ---найти 3го дочернего li по списку
         * tr:nth-child(3) td:last-child
          */
+//=========================================================
+        /*  CSS                  ||    xPath
+     ------------------------------------------------------
+         tag                     || /html/...{tag} or //tag
+         .class                  || //*[@class = 'class']
+         #id                     || //*[@id = 'id']
+         [attribute]            || //*[@attribute]
+         [attribute ='value']   || //*[@attribute = 'value']
+         [attribute]*='value']  || //*[contains(@attribute,'value')]
+         [attribute]^='value']  || //*[starts-with(@attribute,'value')]
+         [attribute]$='value']  || not exist
+         */
 
-
+//     //*[@id='root']
 
     }
 

@@ -13,31 +13,28 @@ public class Index {
     WebDriver wd;
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
         wd = new ChromeDriver();
         wd.get("file:///D:/Study/QA/Auto/21.index.html");
     }
 
     @Test
-    public void tableTest(){
+    public void tableTest() {
         //Canada
         //WebElement canada = wd.findElement(By.cssSelector("tr:nth-child(3) td:last-child"));
         WebElement canada = wd.findElement(By.xpath("//td[text()='Canada']"));
-        Assert.assertEquals(canada.getText(),"Canada");
-
+        Assert.assertEquals(canada.getText(), "Canada");
 
     }
 
-
-
     @Test
-    public void cssLocators(){
+    public void cssLocators() {
         //by tag name
-       WebElement button = wd.findElement(By.tagName("button"));
-       WebElement button1 = wd.findElement(By.cssSelector("button"));
+        WebElement button = wd.findElement(By.tagName("button"));
+        WebElement button1 = wd.findElement(By.cssSelector("button"));
 
-       WebElement a = wd.findElement(By.tagName("a"));
-       WebElement a1 = wd.findElement(By.cssSelector("a"));
+        WebElement a = wd.findElement(By.tagName("a"));
+        WebElement a1 = wd.findElement(By.cssSelector("a"));
 
         List<WebElement> listA = wd.findElements(By.tagName("a"));
         List<WebElement> listA1 = wd.findElements(By.cssSelector("a"));
@@ -76,24 +73,23 @@ public class Index {
         WebElement inputS1 = wd.findElement(By.cssSelector("[name = 'surename']"));
 
 
-
         //linkText --old and slow
-    //    WebElement a3 = wd.findElement(By.linkText("Item 1"));
+        //    WebElement a3 = wd.findElement(By.linkText("Item 1"));
 
         //partialLinkText -- old and slow
-     //   WebElement a3 = wd.findElement(By.partialLinkText("m 1"));
+        //   WebElement a3 = wd.findElement(By.partialLinkText("m 1"));
 
-       /*
-       * - find any elements
-       *div -
-      * # id
-      * .class
-      * [name = 'value'] - attribute
-      * .c1.c2 - find 2 classes
-      * a#id.c1.c2
-        *
-        *  ul li:nth-child(3)   ---найти 3го дочернего li по списку
-        * tr:nth-child(3) td:last-child
+        /*
+         * - find any elements
+         *div -
+         * # id
+         * .class
+         * [name = 'value'] - attribute
+         * .c1.c2 - find 2 classes
+         * a#id.c1.c2
+         *
+         *  ul li:nth-child(3)   ---найти 3го дочернего li по списку
+         * tr:nth-child(3) td:last-child
          */
 //=========================================================
         /*  CSS                  ||    xPath
@@ -109,7 +105,12 @@ public class Index {
          */
 
 //     //*[@id='root']
+//============ CW 4 - 2 feb =================================================
 
+        //a [3]  -- xpath a 3rd element
+        WebElement a3 = wd.findElement(By.xpath("//a[3]"));
+        WebElement a4 = wd.findElement(By.cssSelector("a:nth-child(3)"));
     }
+
 
 }

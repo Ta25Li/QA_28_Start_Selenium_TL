@@ -54,36 +54,80 @@ public class HomeWork {
 
         // ====================================================================
         @Test
-        public void cssLocators2(){
+        public void cssLocators2() {
 
-        //by class
-        WebElement el1 = wd.findElement(By.className("active"));
-        WebElement el2 = wd.findElement(By.cssSelector(".active"));
-        WebElement el3 = wd.findElement(By.xpath("//*[@class = 'active']"));
-
-
-        //by id
-        WebElement el4 = wd.findElement(By.id("root"));
-        WebElement el5 = wd.findElement(By.cssSelector("#root"));
-        WebElement el6 = wd.findElement(By.xpath("//*[@id='root']"));
+            //by class
+            WebElement el1 = wd.findElement(By.className("active"));
+            WebElement el2 = wd.findElement(By.cssSelector(".active"));
+            WebElement el3 = wd.findElement(By.xpath("//*[@class = 'active']"));
 
 
-        //by attribute
-        WebElement el7 = wd.findElement(By.cssSelector("input[placeholder ='Password']"));
-        WebElement el8 = wd.findElement(By.xpath("//input[@placeholder ='Email']"));
-
-        //by attribute --> starts & ends & contains
-
-        WebElement el13 = wd.findElement(By.cssSelector("input[placeholder ^='Em']"));
-        WebElement el14= wd.findElement(By.xpath("//input[starts-with(@placeholder,'Em')]"));
-
-        WebElement el15 = wd.findElement(By.cssSelector("input[placeholder *='ai']"));
-        WebElement el16 = wd.findElement(By.xpath("//input[contains(@placeholder,'ss')]"));
-
-        WebElement el17 = wd.findElement(By.cssSelector("input[placeholder $='il']"));
-        WebElement el18 = wd.findElement(By.xpath("//input[contains(@placeholder,'il')]"));
+            //by id
+            WebElement el4 = wd.findElement(By.id("root"));
+            WebElement el5 = wd.findElement(By.cssSelector("#root"));
+            WebElement el6 = wd.findElement(By.xpath("//*[@id='root']"));
 
 
+            //by attribute
+            WebElement el7_1 = wd.findElement(By.cssSelector("[placeholder ='Password']"));
+            WebElement el7 = wd.findElement(By.cssSelector("input[placeholder ='Password']"));
+            WebElement el8 = wd.findElement(By.xpath("//input[@placeholder ='Email']"));
 
-    }
+            //by attribute --> starts & ends & contains
+
+            WebElement el13 = wd.findElement(By.cssSelector("input[placeholder ^='Em']"));
+            WebElement el14 = wd.findElement(By.xpath("//input[starts-with(@placeholder,'Em')]"));
+
+            WebElement el15 = wd.findElement(By.cssSelector("input[placeholder *='ai']"));
+            WebElement el16 = wd.findElement(By.xpath("//input[contains(@placeholder,'ss')]"));
+
+            WebElement el17 = wd.findElement(By.cssSelector("input[placeholder $='il']"));
+            WebElement el18 = wd.findElement(By.xpath("//input[contains(@placeholder,'il')]"));
+        }
+//===============
+            @Test
+            public void classWork2feb() {
+                //parent
+                WebElement el = wd.findElement(By.xpath("//h1/parent::*"));
+                WebElement el19 = wd.findElement(By.xpath("//h1/parent::div"));
+               WebElement el20 = wd.findElement(By.xpath("//h1/.."));
+
+                //ancestor
+                WebElement el21 = wd.findElement(By.xpath("//h1/ancestor::*"));
+                WebElement el22 = wd.findElement(By.xpath("//h1/ancestor::div"));
+                WebElement el23 = wd.findElement(By.xpath("//h1/ancestor::div[2]"));
+
+                //ancestor or self
+                WebElement el24 = wd.findElement(By.xpath("//h1/ancestor-or-self::*"));
+                List<WebElement> list = wd.findElements(By.xpath("//h1/ancestor-or-self::*"));
+
+                //following-sibling
+                List<WebElement> list1 = wd.findElements(By.xpath("//h1/following-sibling::a"));
+
+                //preceding-sibling
+                WebElement h1 = wd.findElement(By.xpath("//a[last()]/preceding-sibling::h1"));
+                List<WebElement> list_a = wd.findElements(By.xpath("//a[3]/preceding-sibling::a"));
+
+            }
+@Test
+    public void classWork2 (){
+        WebElement el = wd.findElement(By.cssSelector("[name ='login']"));
+        String text = el.getText(); //get text from innerText
+    System.out.println(text);
+
+    WebElement form = wd.findElement(By.xpath("//form"));
+    String textForm = form.getText();
+    System.out.println("*************");
+    System.out.println(textForm);
+
+    WebElement body = wd.findElement(By.tagName("body"));
+    String textAll = body.getText();
+    System.out.println("*************");
+    System.out.println(textAll);
+
+
+
+}
+
+
 }
